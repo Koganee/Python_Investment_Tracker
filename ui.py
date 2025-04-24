@@ -4,6 +4,9 @@ import yfinance as yf
 import matplotlib.pyplot as plt
 import json
 from graph import plot_stock
+from news import get_news
+from ai_news_reader import summarize_text
+import openai
 
 # Function to load the portfolio (from a JSON file)
 def load_portfolio():
@@ -58,7 +61,7 @@ def view_portfolio():
         return
 
     for ticker, shares in portfolio.items():
-        button = tk.Button(input_frame, text=f"{ticker}: {shares} shares", fg="green", bg="black", relief="flat", font=("Courier", 12), command=lambda t=ticker: plot_stock(t, "6mo", graph_frame))
+        button = tk.Button(input_frame, text=f"{ticker}: {shares} shares", fg="green", bg="black", relief="flat", font=("Courier", 12), command=lambda t=ticker: (plot_stock(t, "6mo", graph_frame), get_news(t, news_frame)))
         button.pack(pady=5, fill="x")
 
     portfolio_text.delete(1.0, tk.END)
@@ -90,10 +93,15 @@ input_frame.pack(side="left", fill="y", padx=20)
 graph_frame = tk.Frame(root, bg="black")
 graph_frame.pack(side="top", fill="x", anchor="nw", expand=True)
 
+news_frame = tk.Frame(root, bg="black")
+news_frame.pack(side="top", fill="x", anchor="se")
+
 graph_frame.config(highlightbackground="green", highlightthickness=2)
 
 # Draw a border around the input frame
 input_frame.config(highlightbackground="green", highlightthickness=2)
+
+news_frame.config(highlightbackground="green", highlightthickness=2)
 
 # Update input fields and buttons to input_frame
 ticker_label = tk.Label(input_frame, text="Enter Stock Ticker:", fg="green", bg="black", font=("Courier", 12))
