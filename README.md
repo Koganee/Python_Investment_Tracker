@@ -13,4 +13,5 @@ Setup:
 - OPENAI API Key required to use AI features.
 
 Gallery:
+
 ![image](https://github.com/user-attachments/assets/790448a0-e3f4-41af-9f3f-c5752892814c)
