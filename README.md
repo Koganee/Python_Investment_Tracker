@@ -1,4 +1,4 @@
-Are you looking for a software wherein you can easily manage your stock portfolio? Does you need an all-in-one application so you can effectively analyse market trends and obtain real-time stock news?
+Are you looking for a software wherein you can easily manage your stock portfolio? Do you need an all-in-one application so you can effectively analyse market trends and obtain real-time stock news?
 If that is the case, this is the application you may be looking for.
 
 This application has five main features that aim to help you track your stock portfolio:
